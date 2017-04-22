@@ -8,19 +8,12 @@ package week09;
  * Created on 17/04/2017.
  * @author Anthony
  */
-public class BlockSizeException extends Exception {
+public class BlockSizeException extends RuntimeException {
     /**
-     * Default constructor.
+     * Default constructor, initialises the super class with the
+     * default message.
      */
     public BlockSizeException(){
-        super();
-    }
-
-    /**
-     * Constructor overload with String message.
-     * @param message The message to display.
-     */
-    public BlockSizeException(String message){
-        super(message);
+        super("Block sizes must be positive, and the sum equal to the deck size.");
     }
 }
