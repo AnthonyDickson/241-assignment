@@ -53,7 +53,7 @@ public class OverhandShuffler implements Overhand {
             // Move the insertCursor to the left.
             insertCursor -= blockSize;
 
-            // Insert the elements in between the left and right (left + blockSize) indices...
+            // Copy block of cards to the new deck (nextState).
             System.arraycopy(deck, cursor, nextState, insertCursor, blockSize);
 
             // Move the cursor to the right.
