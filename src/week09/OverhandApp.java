@@ -22,7 +22,6 @@ public class OverhandApp {
      * @param args The commands from the command line.
      */
     public static void main(String[] args) {
-        app.makeNew(50);
         Scanner input = new Scanner(System.in);
         while (input.hasNextLine()) {
             handleCommand(input.nextLine());

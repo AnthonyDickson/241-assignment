@@ -9,6 +9,8 @@ package week09;
  * @author Anthony
  */
 public class BlockSizeException extends RuntimeException {
+    public static final long serialVersionUID = 1L;
+
     /**
      * Default constructor, initialises the super class with the
      * default message.

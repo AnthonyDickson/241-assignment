@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @author Anthony
  */
 public class OverhandShuffler implements Overhand {
-    private int[] deck;
+    private int[] deck = {};
 
     public void makeNew(int size) {
         this.deck = new int[size];
@@ -44,22 +44,20 @@ public class OverhandShuffler implements Overhand {
 
         // The next state of the deck.
         int[] nextState = new int[deck.length];
-        // The current working position in the deck. Starts at one position past the last element.
-        int cursor  = deck.length;
+        // Where to copy from in the deck.
+        int cursor  = 0;
         // Where to insert into the new deck.
-        int insertCursor  = 0;
+        int insertCursor = deck.length;
 
         for (int blockSize : blocks) {
-            // The index to start copying from.
-            int left = cursor - blockSize;
+            // Move the insertCursor to the left.
+            insertCursor -= blockSize;
 
             // Insert the elements in between the left and right (left + blockSize) indices...
-            System.arraycopy(deck, left, nextState, insertCursor, blockSize);
+            System.arraycopy(deck, cursor, nextState, insertCursor, blockSize);
 
-            // Move the insertCursor to the right.
-            insertCursor += blockSize;
-            // Move the cursor to the left.
-            cursor -= blockSize;
+            // Move the cursor to the right.
+            cursor += blockSize;
         }
 
         this.deck = nextState;
