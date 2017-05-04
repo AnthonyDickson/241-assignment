@@ -4,8 +4,7 @@ package week09;
  * Interface for manipulating a deck of cards using overhand shuffling.
  * <br />
  * Created on 17/04/2017.
- * @author Anthony
- * @see <a href="http://www.cs.otago.ac.nz/cosc241/pdf/asgn.pdf">http://www.cs.otago.ac.nz</a>
+ * @author Anthony Dickson, Johnny Mann, Maurice Andrews
  */
 public interface Overhand {
     /**
@@ -26,8 +25,10 @@ public interface Overhand {
      * Shuffles the current state of the deck according to the array of block
      * sizes given.
      * @param blocks Array of block sizes.
+     * @throws BlockSizeException if any values in blocks are negative, or the 
+     * sum of all values exceeds the length of the deck.
      */
-    void shuffle(int[] blocks) throws BlockSizeException;
+    void shuffle(int[] blocks);
 
     /**
      * Returns the minimum number of times that the deck could be shuffled

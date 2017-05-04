@@ -9,10 +9,10 @@ import java.util.Scanner;
  * Overhand application entry point.
  * <br />
  * Created on 17/04/2017.
- * @author Anthony
+ * @author Anthony Dickson, Johnny Mann, Maurice Andrews
  */
 public class OverhandApp {
-    /** Instance of OverhandShuffler */
+    /** Instance of OverhandShuffler. */
     private static OverhandShuffler app = new OverhandShuffler();
 
     /**
@@ -55,12 +55,13 @@ public class OverhandApp {
             String command = scan.next();
             switch (command) {
                 case "make-new": case "m": {
-                        int[] args = getNums(scan);
+                    int[] args = getNums(scan);
 
-                        if (args.length < 1) {
-                            System.out.println("Command 'make-new' is missing its arguments.");
-                            break;
-                        }
+                    if (args.length < 1) {
+                        System.out.println("Command 'make-new' is missing " +
+                            "its arguments.");
+                        break;
+                    }
 
                     app.makeNew(args[0]);
                 } break;
@@ -74,14 +75,16 @@ public class OverhandApp {
                         app.shuffle(getNums(scan));
                     } catch (BlockSizeException e) {
                         System.out.println(e.getMessage());
-                    } break;
+                    } 
+                    break;
 
                 case "order": case "o":
                     try {
                         System.out.println(app.order(getNums(scan)));
                     } catch (BlockSizeException e) {
                         System.out.println(e.getMessage());
-                    } break;
+                    } 
+                    break;
 
                 case "unbroken-pairs": case "u":
                     System.out.println(app.unbrokenPairs());
@@ -94,24 +97,26 @@ public class OverhandApp {
                 case "count-shuffles": case "c": {
                     int[] args = getNums(scan);
 
-                        if (args.length < 1) {
-                            System.out.println("Command 'count-shuffles' is missing its arguments.");
-                            break;
-                        }
+                    if (args.length < 1) {
+                        System.out.println("Command 'count-shuffles' is " +
+                            "missing its arguments.");
+                        break;
+                    }
 
                     System.out.println(app.countShuffles(args[0]));
                 } break;
 
                 case "load": case "l": {
-                        ArrayList<String> args = new ArrayList<>();
-                        while (scan.hasNext()) {
-                            args.add(scan.next());
-                        }
-                        if (args.size() < 1) {
-                            System.out.println("Command 'load' is missing its arguments.");
-                        }
-                        app.load(args.toArray(new String[0]));
-                    } break;
+                    ArrayList<String> args = new ArrayList<>();
+                    while (scan.hasNext()) {
+                        args.add(scan.next());
+                    }
+                    if (args.size() < 1) {
+                        System.out.println("Command 'load' is missing its " +
+                            "arguments.");
+                    }
+                    app.load(args.toArray(new String[0]));
+                } break;
 
                 case "try-repeat": case "t":
                     System.out.println(Arrays.toString(app.tryRepeat()));
@@ -133,7 +138,8 @@ public class OverhandApp {
                     break;
 
                 default:
-                    System.out.println("Unsupported command '" + command + "'.");
+                    System.out.println("Unsupported command '" + command + 
+                        "'.");
             }
         }
     }

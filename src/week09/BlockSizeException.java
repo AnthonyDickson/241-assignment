@@ -6,16 +6,16 @@ package week09;
  * equal to the total size of the deck.
  * <br />
  * Created on 17/04/2017.
- * @author Anthony
+ * @author Anthony Dickson, Johnny Mann, Maurice Andrews
  */
+@SuppressWarnings("unchecked") // Suppress warnings about serialVersionUID
 public class BlockSizeException extends RuntimeException {
-    public static final long serialVersionUID = 1L;
-
     /**
      * Default constructor, initialises the super class with the
      * default message.
      */
     public BlockSizeException(){
-        super("Block sizes must be positive, and the sum equal to the deck size.");
+        super("Block sizes must be positive, and the sum equal to the deck " +
+            "size.");
     }
 }
